@@ -21,7 +21,7 @@ Once you've got your server up and running, click the link above for demo and cl
 4. Update `.env` file with proper database url if you had to change anything
 5. Migrate & seed database with most recent schema: `$ npx prisma migrate reset`
 6. Start the server: `$ npm start`
-7. [Check Usage Docs](http://observablehq.com/@ada-lovecraft/dirt-nap-api)
+7. [Check Usage Docs](http://observablehq.com/@ada-lovecraft/dirt-nap-docs)
 
 
     
