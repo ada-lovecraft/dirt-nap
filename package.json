@@ -7,7 +7,7 @@
   "scripts": {
     "test": "ava",
     "test:dev": "ava --watch",
-    "start": "npm index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
