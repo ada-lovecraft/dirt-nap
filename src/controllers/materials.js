@@ -1,11 +1,14 @@
 import prisma from '../lib/prisma.js'
 
-const getAll = (req, res) =>
-  prisma.material.findMany({
+const getAll = (req, res) => {
+  console.log('getAll:', req.params)
+  return prisma.material.findMany({
     where: {
       siteId: req.params.siteId
     }
   })
+}
+
 const getOne = (req, res) =>
   prisma.material.findFirst({
     where: {

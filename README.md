@@ -1,76 +1,37 @@
 
-# Project Title
+# dirt-nap api
 
-A brief description of what this project does and who it's for
+A little api to manage construction site materials
 
-
-## Demo
-
-Insert gif or link to demo
-
+## [Live Demo](http://observablehq.com/@ada-lovecraft/dirt-nap-api)
+Once you've got your server up and running, click the link above for demo and client use docs.
 
 ## Features
-
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
+- `postgresql` for data persistence
+- `Prisma` for DB Migrations, Seeding, and querying
+- `express` for Routing and Serving
+- `dotenv` for environment settings
+- `ava` for testing
 
 ## Installation
 
-Install my-project with npm
+1. clone this repo: `$ gh repo clone ada-lovecraft/dirt-nap`
+2. Install dependencies: `$ npm install`
+3. run postgres docker: `$ docker run --name dirt-nap-postgres -p 5432:5432  -e POSTGRES_PASSWORD=password postgres:latest`
+4. Update `.env` file with proper database url if you had to change anything
+5. Migrate & seed database with most recent schema: `$ npx prisma migrate reset`
+6. Start the server: `$ npm start`
+7. [Check Usage Docs](http://observablehq.com/@ada-lovecraft/dirt-nap-api)
 
-```bash
-  npm install my-project
-  cd my-project
-```
+
     
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
-
-`ANOTHER_API_KEY`
+`DATABASE_URL` - the db connection string to your postgres instance
 
 
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
-
-## API Reference
-
-#### Get all items
-
-```http
-  GET /api/items
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
-
-#### Get item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
 
 
 ## Running Tests
@@ -80,11 +41,17 @@ To run tests, run the following command
 ```bash
   npm run test
 ```
+pr with a watcher
+```bash
+npm run test:dev
+```
 
+## Updating Schemas
+The database schema at `/prisma/schema.prisma`. 
+Once you've editted it, you can push it to your local db by `$ npx prisma db push` 
+If you're happy with the change, `$ npx prisma migrate dev` to create a new migration step
 
-## Roadmap
+## DB Seeding
+The database is automatically seeded when you `$ npx prisma migrate deploy`. The seed scripts are located at `prisma/seed.js`
 
-- Additional browser support
-
-- Add more integrations
 

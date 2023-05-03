@@ -6,10 +6,7 @@ const getAll = (req, res) => prisma.site.findMany()
 const getOne = (req, res) =>
   prisma.site.findUniqueOrThrow({ where: { id: req.params.id } })
 
-const create = (req, res) => {
-  console.log(req.body)
-  prisma.site.create({ data: req.body })
-}
+const create = (req, res) => prisma.site.create({ data: req.body })
 
 const update = async (req) => {
   const ov = await getOne(req)

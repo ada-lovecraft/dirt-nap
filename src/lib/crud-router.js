@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-const routeHandler = (fn) => async (req, res, next) => {
+export const routeHandler = (fn) => async (req, res, next) => {
   try {
     const results = await fn(req)
     res.json(results)
@@ -13,15 +13,10 @@ const routeHandler = (fn) => async (req, res, next) => {
     }
   }
 }
-export default (router) => (path, controller) => {
-  console.log('path:', path)
+export default (router) => (path, controller) =>
   router
     .get(path, routeHandler(controller.getAll))
     .post(path, routeHandler(controller.create))
-  router
     .get(`${path}/:id`, routeHandler(controller.getOne))
     .put(`${path}/:id`, routeHandler(controller.update))
     .delete(`${path}/:id`, routeHandler(controller.remove))
-
-  return router
-}
