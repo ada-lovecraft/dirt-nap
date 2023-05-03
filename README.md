@@ -54,4 +54,7 @@ If you're happy with the change, `$ npx prisma migrate dev` to create a new migr
 ## DB Seeding
 The database is automatically seeded when you `$ npx prisma migrate deploy`. The seed scripts are located at `prisma/seed.js`
 
+## The Naming of Things
+Why did I call this project `dirt-nap`? 
+It's a `REST` api  dealing with construction site materials, a lot of which are created from the `earth` itself.
 
